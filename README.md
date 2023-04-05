@@ -25,4 +25,4 @@ Run Script wiht python3
 
 The Main.java file will be created next to the src folder.
 #
-I Hope it was useful for you 👨🏻‍🔧.
+I Hope it will be useful for you 👨🏻‍🔧.
