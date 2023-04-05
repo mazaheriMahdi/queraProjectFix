@@ -17,7 +17,7 @@ Go to the project directory
 ```bash
   cd queraProjectFix
 ```
-Run Script wiht python3 
+Run Script with python3 
 
 ```bash
   python3 main.py
