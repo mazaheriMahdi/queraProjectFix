@@ -1,4 +1,6 @@
 import os
+import tkinter as tk
+from tkinter import filedialog, messagebox
 
 
 def merge_java_files(input_directory, output_directory):
@@ -50,8 +52,69 @@ def merge_java_files(input_directory, output_directory):
     return f"Merged {len(java_files)} Java files into 'Main.java' in '{output_directory}'"
 
 
+def browse_input_directory(entry):
+    directory_path = filedialog.askdirectory()
+    if directory_path:
+        entry.delete(0, tk.END)
+        entry.insert(0, directory_path)
+
+
+def browse_output_directory(entry):
+    directory_path = filedialog.askdirectory()
+    if directory_path:
+        entry.delete(0, tk.END)
+        entry.insert(0, directory_path)
+
+
+def merge(input_entry, output_entry):
+    input_directory = input_entry.get()
+    output_directory = output_entry.get()
+    if not input_directory:
+        messagebox.showerror("Error", "Please select input directory.")
+        return
+    if not output_directory:
+        messagebox.showerror("Error", "Please select output directory.")
+        return
+    merge_result = merge_java_files(input_directory, output_directory)
+    messagebox.showinfo("Merge Result", merge_result)
+
+
 def main():
-    pass
+    root = tk.Tk()
+    root.title("Java File Merger")
+
+    # Get screen width and height
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+
+    # Set window size and position it in the center
+    window_width = int(screen_width * 0.5)
+    window_height = int(screen_height * 0.5)
+    x_position = (screen_width // 2) - (window_width // 2)
+    y_position = (screen_height // 2) - (window_height // 2)
+    root.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
+
+    label_input = tk.Label(root, text="Input Directory:", font=("Arial", 16))
+    input_frame = tk.Frame(root)
+    input_entry = tk.Entry(input_frame, font=("Arial", 14), width=40)
+    input_button = tk.Button(input_frame, text="Browse", font=("Arial", 14), command=lambda: browse_input_directory(input_entry))
+    label_output = tk.Label(root, text="Output Directory:", font=("Arial", 16))
+    output_frame = tk.Frame(root)
+    output_entry = tk.Entry(output_frame, font=("Arial", 14), width=40)
+    output_button = tk.Button(output_frame, text="Browse", font=("Arial", 14), command=lambda: browse_output_directory(output_entry))
+    merge_button = tk.Button(root, text="Merge", font=("Arial", 16), command=lambda: merge(input_entry, output_entry))
+
+    label_input.pack(pady=10)
+    input_frame.pack(pady=5)
+    input_entry.pack(side=tk.LEFT)
+    input_button.pack(side=tk.LEFT, padx=5)
+    label_output.pack(pady=10)
+    output_frame.pack(pady=5)
+    output_entry.pack(side=tk.LEFT)
+    output_button.pack(side=tk.LEFT, padx=5)
+    merge_button.pack(pady=20)
+
+    root.mainloop()
 
 
 if __name__ == "__main__":
