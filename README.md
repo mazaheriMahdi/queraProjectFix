@@ -3,7 +3,7 @@
 This script provides a simple graphical interface to merge multiple Java files into a single file. It allows users to select an input directory containing Java files and specify an output directory where the merged file will be saved. The merging process removes package declarations and ensures the `Main` class is made public.
 
 
-
+</br>
 
 ## Usage
 **To use the Java File Merger script, follow these steps:**
@@ -25,13 +25,14 @@ This script provides a simple graphical interface to merge multiple Java files i
   python main.py
 ```
 
-<br>
-<img alt="panel" src="demo.png" width="385" height="235" style="padding-left: 20px;">
+</br>
+<img alt="panel" src="demo.png" width="385" height="235">
 
 4. Select the input directory containing the Java files to merge.
 5. Select the output directory where the merged file will be saved.
 6. Click the "Merge" button to initiate the merging process.
 
+</br>
 
 ## Note
 
