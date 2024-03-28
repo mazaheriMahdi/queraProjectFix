@@ -88,8 +88,8 @@ def main():
     screen_height = root.winfo_screenheight()
 
     # Set window size and position it in the center
-    window_width = int(screen_width * 0.5)
-    window_height = int(screen_height * 0.5)
+    window_width = int(screen_width * 0.4)
+    window_height = int(screen_height * 0.4)
     x_position = (screen_width // 2) - (window_width // 2)
     y_position = (screen_height // 2) - (window_height // 2)
     root.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
